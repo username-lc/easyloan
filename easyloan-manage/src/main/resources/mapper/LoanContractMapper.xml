@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.easyloan.manage.mapper.NplmLoanContractMapper">
+    <resultMap id="NplmLoanContractMap" type="com.easyloan.bean.NplmLoanContract" autoMapping="true">
+        <id property="id" column="ID"></id>
+        <association property="nplmContractAttribute" javaType="com.easyloan.bean.NplmContractAttribute" autoMapping="true">
+            <result property="id" column="attributeId"></result>
+        </association>
+        <collection property="nplmBorrowerInfo" ofType="com.easyloan.bean.NplmBorrowerInfo" autoMapping="true">
+            <id property="id" column="borrowerId"></id>
+        </collection>
+        <collection property="nplmOverdueContract" ofType="com.easyloan.bean.NplmOverdueContract" autoMapping="true">
+            <id property="id" column="overdusId"></id>
+        </collection>
+        <!--<collection property="nplmContractAttribute" ofType="com.easyloan.bean.NplmContractAttribute" autoMapping="true">-->
+            <!--<id property="id" column="attributeId"></id>-->
+        <!--</collection>-->
+
+    </resultMap>
+    
+    <select id="getNplmLoanContractList"  parameterType="java.util.Map" resultMap="NplmLoanContractMap">
+            select
+        c.ID,
+        c.`LOAN_CONTRACT_NUM`,
+        c.CONTRACT_TYPE,
+        c.`LOAN_INSTALMENTS`,
+        c.`START_DATE`,
+        c.`END_DATE`,
+        c.`LOAN_AMOUNT`,
+        c.`REPAY_ACCOUNT_BANK_NAME`,
+        c.`REPAY_ACCOUNT`,
+        c.`PRE_FEE`,
+        c.`LOAN_TYPE`,
+        c.`REPAY_DATE`,
+        c.`PUT_AMOUNT`,
+        b.`id` borrowerId,
+         b.`CLIENT_NAME`,
+         b.`IDENTITY_TYPE`,
+         b.`IDENTITY_NUM`,
+         a.id attributeId,
+         a.`loan_breed`,
+         a.`trust_organization`,
+         a.`trust_product_line`,
+         a.`trust_plan`,
+         a.`city_area`,
+         a.`business_type`,
+         a.`dept_name`,
+         a.`is_expedited`,
+         a.`sign_type`,
+         a.`sign_date`,
+         a.`is_recycle_load`,
+         a.`recycle_loan_cnt`,
+         a.`settle_date`
+         from nplm_loan_contract c
+         left join  nplm_borrower_info b
+         on c.`borrower_id`=b.id
+         left join nplm_contract_attribute a
+         on c.`ID`=a.`loan_contract_id`
+        <where>
+            <if test="loanContractNum != null">
+                c.LOAN_CONTRACT_NUM=#{loanContractNum}
+            </if>
+        </where>
+        limit #{pageNo},#{pageSize}
+    </select>
+    
+    <select id="count" resultType="int">
+        SELECT COUNT(*) from  nplm_loan_contract
+    </select>
+    <resultMap id="NplmOverdueContractMap" type="com.easyloan.bean.NplmLoanContract" autoMapping="true">
+        <id property="id" column="ID"></id>
+        <collection property="nplmOverdueContract" ofType="com.easyloan.bean.NplmOverdueContract" autoMapping="true">
+            <id property="id" column="overdusId"></id>
+        </collection>
+    </resultMap>
+    <select id="getPaymentOptions" parameterType="java.lang.String" resultMap="NplmOverdueContractMap">
+    SELECT
+    loan.`ID`,loan.*,overdus.`id` overdusId ,overdus.*
+    FROM nplm_loan_contract  loan
+    INNER JOIN `nplm_overdue_contract` overdus
+     WHERE loan.`LOAN_CONTRACT_NUM`=overdus.`LOAN_CONTRACT_NUM`
+     AND loan.`LOAN_CONTRACT_NUM`=#{id}
+    </select>
+</mapper>

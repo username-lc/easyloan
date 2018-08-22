@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/easyloan.iml" filepath="$PROJECT_DIR$/.idea/easyloan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easyloan-bean/easyloan-bean.iml" filepath="$PROJECT_DIR$/easyloan-bean/easyloan-bean.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easyloan-common-util/easyloan-common-util.iml" filepath="$PROJECT_DIR$/easyloan-common-util/easyloan-common-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easyloan-interface/easyloan-interface.iml" filepath="$PROJECT_DIR$/easyloan-interface/easyloan-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easyloan-manage/easyloan-manage.iml" filepath="$PROJECT_DIR$/easyloan-manage/easyloan-manage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easyloan-parent/easyloan-parent.iml" filepath="$PROJECT_DIR$/easyloan-parent/easyloan-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easyloan-service-util/easyloan-service-util.iml" filepath="$PROJECT_DIR$/easyloan-service-util/easyloan-service-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easyloan-web-util/easyloan-web-util.iml" filepath="$PROJECT_DIR$/easyloan-web-util/easyloan-web-util.iml" />
+    </modules>
+  </component>
+</project>

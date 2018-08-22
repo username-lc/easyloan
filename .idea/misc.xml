@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/easyloan-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/easyloan-bean/pom.xml" />
+        <option value="$PROJECT_DIR$/easyloan-interface/pom.xml" />
+        <option value="$PROJECT_DIR$/easyloan-manage/pom.xml" />
+        <option value="$PROJECT_DIR$/easyloan-common-util/pom.xml" />
+        <option value="$PROJECT_DIR$/easyloan-service-util/pom.xml" />
+        <option value="$PROJECT_DIR$/easyloan-web-util/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_9" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+</project>
